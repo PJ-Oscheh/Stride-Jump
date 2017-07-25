@@ -11,7 +11,7 @@ public class DestroyPlatform : MonoBehaviour {
 	
 	// Update is called once per frame
 	void OnCollisionEnter2D (Collision2D col) {
-		if (col.gameObject.tag == "DestroyPlatform")
-			Destroy(gameObject);
+		if (col.gameObject.tag == "Die")
+			Destroy(col.gameObject);
 	}
 }

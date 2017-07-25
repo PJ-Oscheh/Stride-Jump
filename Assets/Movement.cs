@@ -41,12 +41,23 @@ public class Movement : MonoBehaviour {
 
 
 	void OnCollisionEnter2D (Collision2D col) {
-		if (col.gameObject.tag == "Platform") {
+		if (col.gameObject.tag == "Platform") { 
 			Debug.Log ("Collide with Platform tag");
 			jumpCount = 2;
+			ThePlatform.tag = "Die";
 			Instantiate (ThePlatform);
+			ThePlatform.tag = "Platform";
+		}
+		if (col.gameObject.tag == "Die") { 
+				Debug.Log ("Collide with Die tag");
+				jumpCount = 2;
+				ThePlatform.tag = "Die";
+				Instantiate (ThePlatform);
+				ThePlatform.tag = "Platform";
+
 
 		
 }
 }
 }
+
