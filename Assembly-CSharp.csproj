@@ -50,6 +50,7 @@
      <Compile Include="Assets\Movement.cs" />
      <Compile Include="Assets\PlatformMove.cs" />
      <Compile Include="Assets\destroyCol.cs" />
+     <Compile Include="Assets\fling.cs" />
      <Compile Include="Assets\spawnRandom.cs" />
      <Compile Include="Assets\startButton.cs" />
  <Reference Include="UnityEngine.UI">

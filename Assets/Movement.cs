@@ -7,6 +7,8 @@ public class Movement : MonoBehaviour {
 	public Transform platform;
 	public GameObject ThePlatform;
 	public float jumpSpeed;
+	public float flingSpeed;
+	public float flingSpeedUp;
 	int jumpCount = 2;
 	// Use this for initialization
 	void Start () {
@@ -41,6 +43,8 @@ public class Movement : MonoBehaviour {
 
 
 	void OnCollisionEnter2D (Collision2D col) {
+
+		//Platform is the initial platform, die is all others. The initial platform musn't be destroyed as it is used as a copy for all other platforms.
 		if (col.gameObject.tag == "Platform") { 
 			Debug.Log ("Collide with Platform tag");
 			jumpCount = 2;
@@ -53,11 +57,18 @@ public class Movement : MonoBehaviour {
 				jumpCount = 2;
 				ThePlatform.tag = "Die";
 				Instantiate (ThePlatform);
-				ThePlatform.tag = "Platform";
-
-
-		
+				ThePlatform.tag = "Platform";	
 }
+		if (col.gameObject.tag == "Fling") {
+			Debug.Log ("Collide with Fling");
+			jumpCount = 2;
+			rb.AddForce (new Vector2(flingSpeed * Time.deltaTime, flingSpeedUp * Time.deltaTime));
+}
+		if (col.gameObject.tag == "NegFling") {
+			Debug.Log ("Collide with NegFling");
+			jumpCount = 2;
+			rb.AddForce (new Vector2(-flingSpeed * Time.deltaTime, flingSpeedUp * Time.deltaTime));
+		}
 }
 }
 
