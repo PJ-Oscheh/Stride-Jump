@@ -10,6 +10,10 @@ Idk why it's called Project Scroll. I couln't think of a name so that popped in 
 
 Tilt the device to move, tap the jump. You can jump twice whilst in the air.
 
+## Credits:
+
+Most of the programming and stuff is done by Phil (PJBeans). The music is made by Paul "Lucky Luis" Priebe
+
 ## Platforms:
 
 - Android
