@@ -3,8 +3,6 @@
 
 A simple jumper-style game.
 
-The graphics are just place holders. After I get the main concept completed, I'll implement better graphics.
-
 Idk why it's called Project Scroll. I couln't think of a name so that popped in my head. It will, obviously, be renamed by the time the final release is ready.
 ## Controls:
 
