@@ -15,7 +15,7 @@ public class Main : MonoBehaviour {
 	public Text DeadText;
 	public Transform reset;
 	int jumpCount = 2;
-	int scoreCount = 0;
+	int scoreCount = 2;
 	int deadCheck = 0;
 
 	// Use this for initialization
@@ -38,10 +38,14 @@ public class Main : MonoBehaviour {
 		if (Input.GetKeyDown ("space") & jumpCount > 0 & deadCheck == 0) {
 			rb.AddForce (new Vector2 (0, jumpSpeed * Time.deltaTime), ForceMode2D.Impulse);
 			jumpCount = jumpCount - 1;
+			scoreCount = scoreCount - 1;
+			MyText.text = "Score: " + scoreCount ;
 		}
 		if (Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Began & jumpCount > 0 & deadCheck == 0) {
 			rb.AddForce (new Vector2 (0, jumpSpeed * Time.deltaTime), ForceMode2D.Impulse);
 			jumpCount = jumpCount - 1;
+			scoreCount = scoreCount - 1;
+			MyText.text = "Score: " + scoreCount ;
 		}
 			
 		transform.Translate (Input.acceleration.x * 15.0f * Time.deltaTime, 0, 0);
@@ -59,6 +63,8 @@ public class Main : MonoBehaviour {
 			Debug.Log ("Collide with Platform tag");
 			col.transform.position = new Vector2 (8, -4);
 			jumpCount = 2;
+			scoreCount = scoreCount + 5;
+			MyText.text = "Score: " + scoreCount ;
 			ThePlatform.tag = "Die";
 			Instantiate (ThePlatform);
 			ThePlatform.tag = "Platform";
@@ -66,7 +72,7 @@ public class Main : MonoBehaviour {
 		if (col.gameObject.tag == "Die") { 
 			Debug.Log ("Collide with Die tag");
 			jumpCount = 2;
-			scoreCount = scoreCount + 1;
+			scoreCount = scoreCount + 5;
 			MyText.text = "Score: " + scoreCount ;
 			ThePlatform.tag = "Die";
 			Instantiate (ThePlatform);
