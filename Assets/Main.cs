@@ -8,6 +8,7 @@ public class Main : MonoBehaviour {
 	public Rigidbody2D rb;
 	public Transform platform;
 	public GameObject ThePlatform;
+	public GameObject Laser;
 	public float jumpSpeed;
 	public float flingSpeed;
 	public float flingSpeedUp;
@@ -73,11 +74,18 @@ public class Main : MonoBehaviour {
 			Debug.Log ("Collide with Die tag");
 			jumpCount = 2;
 			scoreCount = scoreCount + 5;
-			MyText.text = "Score: " + scoreCount ;
-			ThePlatform.tag = "Die";
-			Instantiate (ThePlatform);
-			ThePlatform.tag = "Platform";	
-}
+			MyText.text = "Score: " + scoreCount;
+			//Chance spawn a block
+
+				ThePlatform.tag = "Die";
+				Instantiate (ThePlatform);
+				ThePlatform.tag = "Platform";	
+			
+		}
+		if (col.gameObject.tag == "Die" & Random.value > 0.8) {
+			Debug.Log ("Created with 0.8 chance");
+			Instantiate (Laser);
+		}
 		if (col.gameObject.tag == "Fling") {
 			Debug.Log ("Collide with Fling");
 			jumpCount = 2;
@@ -94,6 +102,10 @@ public class Main : MonoBehaviour {
 			deadCheck = 1;
 			reset.transform.position = new Vector2 (0, 1);
 		}
+		if (col.gameObject.tag == "Laser") {
+			Debug.Log ("Collide with Laser");
+			jumpCount = jumpCount + 1;
+		}
 
 
 
@@ -101,5 +113,6 @@ public class Main : MonoBehaviour {
 
 }
 }
+
 
 

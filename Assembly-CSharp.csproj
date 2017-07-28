@@ -50,9 +50,12 @@
      <Compile Include="Assets\Main.cs" />
      <Compile Include="Assets\PlatformMove.cs" />
      <Compile Include="Assets\Restart.cs" />
+     <Compile Include="Assets\Throw.cs" />
+     <Compile Include="Assets\createLaser.cs" />
      <Compile Include="Assets\destroyCol.cs" />
      <Compile Include="Assets\fling.cs" />
      <Compile Include="Assets\killPlatfom.cs" />
+     <Compile Include="Assets\laserSpawnRandom.cs" />
      <Compile Include="Assets\spawnRandom.cs" />
      <Compile Include="Assets\startButton.cs" />
  <Reference Include="UnityEngine.UI">
