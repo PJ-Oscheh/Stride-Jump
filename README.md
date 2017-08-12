@@ -1,18 +1,21 @@
-# Project-Scroll
+# Instinct-Jump
  Build this game in Unity.
+ 
+ Current version on source: 1.0 [Release Candidate]
+ 
 
 A simple jumper-style game.
 
-Idk why it's called Project Scroll. I couln't think of a name so that popped in my head. It will, obviously, be renamed by the time the final release is ready.
+The game and repository has been renamed to it's final name, Instinct Jump! Internaly (except for the repository name), it will still be referenced as Project Scroll.
 ## Controls:
 
 Tilt the device to move, tap the jump. You can jump twice whilst in the air.
 
 ## Credits:
 
-Most of the programming and stuff is done by Phil (PJBeans). The music is made by Paul "Lucky Luis" Priebe
+Most of the programming and stuff is done by Phil (PJBeans). The music is made by Paul "Lucky Luis" Priebe.
+Achievement icon: https://icons8.com/icon/6050/Medal-First-Place
+Leaderboard icon: https://icons8.com/icon/34141/leaderboard
 
 ## Platforms:
-
 - Android
-- **Possibly** Windows 10 Mobile
