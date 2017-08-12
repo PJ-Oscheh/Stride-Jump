@@ -12,11 +12,10 @@ public class createLaser : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate ()
 	{
-		if (Random.value > 0.9) {
-			Debug.Log ("Created with 0.8 chance");
+		
 		}
 	}
-}
+
 		
 		
 	

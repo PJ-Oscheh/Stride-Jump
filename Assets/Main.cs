@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class Main : MonoBehaviour {
+	public static Main Instance { get; private set; }
 	public Rigidbody2D rb;
 	public Transform platform;
 	public GameObject ThePlatform;
@@ -15,12 +16,15 @@ public class Main : MonoBehaviour {
 	public Text MyText;
 	public Text DeadText;
 	public Transform reset;
+	public Transform leaderboard;
+	public Transform achievements;
 	int jumpCount = 2;
-	int scoreCount = 2;
+	public static int scoreCount {get; private set;}
 	int deadCheck = 0;
 
 	// Use this for initialization
 	void Start () {
+		scoreCount = 2;
 		rb = GetComponent<Rigidbody2D> ();
 		MyText.text = "Score: " + scoreCount ;
 		DeadText.text = "";
@@ -30,7 +34,7 @@ public class Main : MonoBehaviour {
 	void Update () {
 		//Log jumpCount to test double jump. Remove before publishing to Google Play.
 		Debug.Log(jumpCount);
-		//Movement. Remap to gyroscope for mobile.
+		//Movement. 
 		Vector2 pRight = transform.TransformDirection(Vector2.right);
 		if (Input.GetKey ("a"))
 			rb.AddForce(-pRight * 500 * Time.deltaTime);
@@ -49,9 +53,9 @@ public class Main : MonoBehaviour {
 			MyText.text = "Score: " + scoreCount ;
 		}
 			
-		transform.Translate (Input.acceleration.x * 15.0f * Time.deltaTime, 0, 0);
-		
-		
+		transform.Translate (Input.acceleration.x * 14.0f * Time.deltaTime, 0, 0);
+
+
 		
 				
 	}
@@ -65,7 +69,7 @@ public class Main : MonoBehaviour {
 			col.transform.position = new Vector2 (8, -4);
 			jumpCount = 2;
 			scoreCount = scoreCount + 5;
-			MyText.text = "Score: " + scoreCount ;
+			MyText.text = "Score: " + scoreCount;
 			ThePlatform.tag = "Die";
 			Instantiate (ThePlatform);
 			ThePlatform.tag = "Platform";
@@ -77,42 +81,88 @@ public class Main : MonoBehaviour {
 			MyText.text = "Score: " + scoreCount;
 			//Chance spawn a block
 
-				ThePlatform.tag = "Die";
-				Instantiate (ThePlatform);
-				ThePlatform.tag = "Platform";	
+			ThePlatform.tag = "Die";
+			Instantiate (ThePlatform);
+			ThePlatform.tag = "Platform";	
 			
 		}
-		if (col.gameObject.tag == "Die" & Random.value > 0.8) {
-			Debug.Log ("Created with 0.8 chance");
+		if (col.gameObject.tag == "Die" & Random.value > 0.9) {
+			Debug.Log ("Created with 0.9 chance");
 			Instantiate (Laser);
 		}
 		if (col.gameObject.tag == "Fling") {
 			Debug.Log ("Collide with Fling");
 			jumpCount = 2;
-			rb.AddForce (new Vector2(flingSpeed * Time.deltaTime, flingSpeedUp * Time.deltaTime));
-}
+			rb.AddForce (new Vector2 (flingSpeed * Time.deltaTime, flingSpeedUp * Time.deltaTime));
+		}
 		if (col.gameObject.tag == "NegFling") {
 			Debug.Log ("Collide with NegFling");
 			jumpCount = 2;
-			rb.AddForce (new Vector2(-flingSpeed * Time.deltaTime, flingSpeedUp * Time.deltaTime));
+			rb.AddForce (new Vector2 (-flingSpeed * Time.deltaTime, flingSpeedUp * Time.deltaTime));
 		}
+
+		//This ends the game and handles many achievements.
 		if (col.gameObject.tag == "Kill") {
 			Debug.Log ("Collide with Kill");
 			DeadText.text = "You died :)";
 			deadCheck = 1;
 			reset.transform.position = new Vector2 (0, 1);
+			leaderboard.transform.position = new Vector2 (-1.4f, -1);
+			achievements.transform.position = new Vector2 (1.4f, -1);
+			if (scoreCount == 2) {
+				Debug.Log ("End game with score 2");
+				PlayGamesScript.UnlockAchievement (GPGSIds.achievement_testing_the_waters);
+			}
+			if (scoreCount >= 3) {
+				Debug.Log ("Greater or equal to 3");
+			}
+			if (scoreCount >= 100) {
+				PlayGamesScript.UnlockAchievement (GPGSIds.achievement_triple_digits);
+			}
+			if (scoreCount >= 500) {
+				PlayGamesScript.UnlockAchievement (GPGSIds.achievement_high_500);
+			}
+			if (scoreCount == 999) {
+				PlayGamesScript.UnlockAchievement (GPGSIds.achievement_not_today);
+			}
+			if (scoreCount >= 1000) {
+				PlayGamesScript.UnlockAchievement (GPGSIds.achievement_1k);
+			}
+			if (scoreCount >= 2000) {
+				PlayGamesScript.UnlockAchievement (GPGSIds.achievement_the_millennium);
+			}
+			if (scoreCount <= -1) {
+				PlayGamesScript.UnlockAchievement (GPGSIds.achievement_other_way_ya_goose);
+			}
+			if (scoreCount >= 50) {
+				PlayGamesScript.UnlockAchievement (GPGSIds.achievement_baby_steps);
+			}
+			if (scoreCount >= 150) {
+				PlayGamesScript.UnlockAchievement (GPGSIds.achievement_150);
+			}
+			if (scoreCount >= 200) {
+				PlayGamesScript.UnlockAchievement (GPGSIds.achievement_youre_getting_the_hang_of_it);
+			}
+			if (scoreCount == 199) {
+				PlayGamesScript.UnlockAchievement (GPGSIds.achievement_o_captain_my_captain);
+			}
+
+
+			// ^ End of Kill.
+			if (col.gameObject.tag == "Laser") {
+				Debug.Log ("Collide with Laser");
+				jumpCount = jumpCount + 1;
+
+			}
+
+
+
+
+
 		}
-		if (col.gameObject.tag == "Laser") {
-			Debug.Log ("Collide with Laser");
-			jumpCount = jumpCount + 1;
-		}
-
-
-
-
-
+	}
 }
-}
+
 
 
 

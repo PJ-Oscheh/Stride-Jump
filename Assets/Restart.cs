@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Restart : MonoBehaviour {
-
 	// Use this for initialization
 	void Start () {
 		
