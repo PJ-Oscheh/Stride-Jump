@@ -9,6 +9,7 @@ A simple jumper-style game.
 The game and repository has been renamed to it's final name, Instinct Jump! Internaly (except for the repository name), it will still be referenced as Project Scroll.
 
 This source contains a keystore. When building, build it without the keystore. This will disable Google Play Games (it will attempt to log in, but will fail and the game will continue as normal.)
+
 ## Controls:
 
 Tilt the device to move, tap the jump. You can jump twice whilst in the air.
