@@ -246,6 +246,7 @@
      <Compile Include="Assets\PlatformMove.cs" />
      <Compile Include="Assets\PlayGamesScript.cs" />
      <Compile Include="Assets\Restart.cs" />
+     <Compile Include="Assets\RestartGame.cs" />
      <Compile Include="Assets\Throw.cs" />
      <Compile Include="Assets\UIScript.cs" />
      <Compile Include="Assets\createLaser.cs" />

@@ -11,7 +11,7 @@ public class spawnRandom : MonoBehaviour {
 	void Start () {
 		
 		x = Random.Range (-2, 2);
-		y = Random.Range (4, -4);
+		y = Random.Range (4, -1.8f);
 		pos = new Vector2 (x, y);
 		transform.position = pos;
 

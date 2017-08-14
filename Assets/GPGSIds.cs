@@ -26,16 +26,17 @@ public static class GPGSIds
 {
         public const string achievement_baby_steps = "CgkIvrWYyMwaEAIQCg"; // <GPGSID>
         public const string achievement_o_captain_my_captain = "CgkIvrWYyMwaEAIQDA"; // <GPGSID>
+        public const string achievement_so_youre_not_a_rookie = "CgkIvrWYyMwaEAIQDQ"; // <GPGSID>
         public const string achievement_high_500 = "CgkIvrWYyMwaEAIQBA"; // <GPGSID>
         public const string achievement_triple_digits = "CgkIvrWYyMwaEAIQAw"; // <GPGSID>
         public const string achievement_the_millennium = "CgkIvrWYyMwaEAIQBw"; // <GPGSID>
         public const string leaderboard_score = "CgkIvrWYyMwaEAIQAA"; // <GPGSID>
-        public const string achievement_1k = "CgkIvrWYyMwaEAIQBg"; // <GPGSID>
+        public const string achievement_150 = "CgkIvrWYyMwaEAIQCQ"; // <GPGSID>
         public const string achievement_other_way_ya_goose = "CgkIvrWYyMwaEAIQCA"; // <GPGSID>
         public const string achievement_testing_the_waters = "CgkIvrWYyMwaEAIQAg"; // <GPGSID>
         public const string achievement_not_today = "CgkIvrWYyMwaEAIQBQ"; // <GPGSID>
         public const string achievement_youre_getting_the_hang_of_it = "CgkIvrWYyMwaEAIQCw"; // <GPGSID>
-        public const string achievement_150 = "CgkIvrWYyMwaEAIQCQ"; // <GPGSID>
+        public const string achievement_1k = "CgkIvrWYyMwaEAIQBg"; // <GPGSID>
 
 }
 
