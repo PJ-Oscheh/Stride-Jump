@@ -249,6 +249,7 @@
      <Compile Include="Assets\RestartGame.cs" />
      <Compile Include="Assets\Throw.cs" />
      <Compile Include="Assets\UIScript.cs" />
+     <Compile Include="Assets\cameraRatio.cs" />
      <Compile Include="Assets\createLaser.cs" />
      <Compile Include="Assets\creditText.cs" />
      <Compile Include="Assets\destroyCol.cs" />
