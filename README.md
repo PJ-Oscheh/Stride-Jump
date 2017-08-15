@@ -1,7 +1,7 @@
 # Instinct-Jump
  Build this game in Unity.
  
- Current version on source: 1.0 [Release Candidate]
+ Current version on source: 1.0 
  
 
 A simple jumper-style game.
