@@ -20,14 +20,22 @@ public class Main : MonoBehaviour {
 	public float jumpSpeed;
 	public float flingSpeed;
 	public float flingSpeedUp;
+	float timer = 0.0f; //Timer for menu to disappear
+	float timeOut = 3.0f;
 	public Text MyText;
 	public Text DeadText;
 	public Text LeaderboardText;
 	public Transform reset;
 	public Transform leaderboard;
 	public Transform achievements;
+	public Transform Menu;
 	int jumpCount = 2;
 	public static int scoreCount {get; private set;}
+
+	//Color stuff
+	public static int colorId { get; set; } //Set by public integer in Colors.cs
+	public SpriteRenderer playerSprite;
+
 	int deadCheck = 0;
 
 	// Use this for initialization
@@ -37,6 +45,17 @@ public class Main : MonoBehaviour {
 		MyText.text = "Score: " + scoreCount ;
 		DeadText.text = "";
 		LeaderboardText.text = "";
+
+		//Set the color
+		if (colorId == 0) {
+			playerSprite.color = new Color (0f, 0f, 0f); //Black
+		}
+		if (colorId == 1) {
+			playerSprite.color = new Color (1f, 0f, 0f); //Red
+		}
+		if (colorId == 2) {
+			playerSprite.color = new Color (1, 1, 0); //Challenge Mode :)
+		}
 	}
 	
 	// Update is called once per frame
@@ -65,7 +84,26 @@ public class Main : MonoBehaviour {
 		// Gyroscope controls
 		transform.Translate (Input.acceleration.x * 14.0f * Time.deltaTime, 0, 0);
 
+		//Menu
+		if (Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Moved)
+			Menu.transform.position = new Vector2 (1.9f, 4.65f);
+		timer += Time.deltaTime;
 
+		if (timer >= timeOut) {
+			Menu.transform.position = new Vector2 (1.9f, 6.0f);
+			timer = 0.0f;
+		}
+		if (Input.GetKey ("n")) {
+			Debug.Log ("Press n");
+			Menu.transform.position = new Vector2 (1.9f, 4.65f);
+			timer += Time.deltaTime;
+
+			if (timer >= timeOut) {
+				Menu.transform.position = new Vector2 (1.9f, 6.0f);
+				timer = 0.0f;
+			}
+		}
+			
 		
 				
 	}
