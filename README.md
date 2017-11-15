@@ -2,7 +2,7 @@
  Build this game in Unity.
  
  Current version on source: 1.0 
- 
+ JOIN THE DISCORD: https://discord.gg/Pzfrjqx
 
 A simple jumper-style game.
 
