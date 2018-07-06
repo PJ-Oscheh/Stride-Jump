@@ -2,8 +2,7 @@
  Build this game in Unity.
  
  Current version on source: 1.0 
- JOIN THE DISCORD: https://discord.gg/Pzfrjqx
-
+ 
 A simple jumper-style game.
 
 The game and repository has been renamed to it's final name, Stride Jump! Internaly (except for the repository name), it will still be referenced as Project Scroll.
