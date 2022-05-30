@@ -1,4 +1,9 @@
 # Stride-Jump
+
+**IMPORTANT** This game is no longer maintained. Stride Jump was a project that I started prior to my Freshman year of highschool and is reflective of my early interest in programming. The code is poorly written not not well documented. However, I'm leaving this repository public for historical purposes as this is one of my first completed (i.e., not abandoned) personal projects.
+
+---
+
  Build this game in Unity.
  
  Current version on source: 1.0 
